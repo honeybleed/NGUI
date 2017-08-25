@@ -1,0 +1,7 @@
+<div #e_outline class="label-text-input-outline" [ngStyle]="currentStyle.outLine" (mouseenter)="enter()" (mouseleave)="leave()">
+  <label #e_label [for]="id" class="label-text-input-label" [ngStyle]="currentStyle.label">{{label}}</label>
+  <div #e_input_block class="label-text-input-block" [ngStyle]="currentStyle.inputBlock">
+    <input [type] = "isPassword ? 'password': 'text'" [name]="name" [id]="id"  #e_input [placeholder]="placeHolder" class="label-text-input" [ngStyle]="currentStyle.input"/>
+  </div>
+  <ui-icon [iconTag]="si?.empty" #e_si class="label-text-input-si" [ngStyle]="currentStyle.si"></ui-icon>
+</div>
