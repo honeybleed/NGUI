@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TextInputSI } from './ui/text-input/text-input-si';
+import { TextInputSI, LengthValidateHandler, EmptyValidateHandler, ValidateHandlerInterface } from './ui';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +11,12 @@ export class AppComponent {
   placeholder = '请输入用户名';
   label= '用户名';
   testSi: TextInputSI = {
-    empty: 'book',
-    error: 'book',
-    success: 'book'
+    empty: 'error',
+    error: 'error',
+    success: 'success'
   };
+  validateHandler: ValidateHandlerInterface[] = [new EmptyValidateHandler('用户名不能为空'),
+  new LengthValidateHandler(5, 14, '用户名长度在5~14之间')];
   constructor() {
   }
 }

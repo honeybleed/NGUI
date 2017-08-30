@@ -1,24 +1,28 @@
-.label-text-input-outline{
-  display:  table;
-  table-layout: fixed;
-  .label-text-input-label{
-    display: table-cell;
-    vertical-align: bottom;
-  }
-  .label-text-input-block{
-    display: table-cell;
-    vertical-align: bottom;
-    .label-text-input{
+.label-text-input-component{
+  display: inline-block;
+  .label-text-input-outline{
+    display:  table;
+    table-layout: fixed;
+    .label-text-input-label{
       display: table-cell;
       vertical-align: bottom;
-      -webkit-appearance:  none;
-      &:focus{
-        outline: none;
+    }
+    .label-text-input-block{
+      display: table-cell;
+      vertical-align: bottom;
+      .label-text-input{
+        display: table-cell;
+        vertical-align: bottom;
+        -webkit-appearance:  none;
+        &:focus{
+          outline: none;
+        }
       }
     }
-  }
-  .label-text-input-si {
-    display: table-cell;
-    vertical-align: bottom;
+    .label-text-input-si {
+      display: table-cell;
+      vertical-align: bottom;
+    }
   }
 }
+

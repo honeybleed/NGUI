@@ -1,0 +1,74 @@
+.label-text-input-component{
+  .label-text-input-outline{
+    background-color: #eee;
+    padding: 5px 10px;
+    border-bottom: 1px solid #999;
+    transition: all .2s;
+    font-family: "Microsoft YaHei", serif;
+    .label-text-input-label {
+      font-size: 16px;
+      padding-right: 5px;
+      color: #222;
+    }
+    .label-text-input {
+      background-color: transparent;
+      height: 20px;
+      font-size: 16px;
+      border: 0;
+      padding: 0 5px;
+      color: #999;
+      font-family: "Microsoft YaHei", serif;
+    }
+    .label-text-input-si {
+      font-size: 14px;
+      color: #222;
+    }
+    .label-text-input-si {
+      color: transparent;
+    }
+  }
+  .label-text-input-msg {
+    text-align: right;
+    padding: 5px;
+    font-size: 12px;
+    color: #666;
+  }
+  &.hover{
+    .label-text-input-outline{
+      background-color: transparent;
+    }
+  }
+  &.focus{
+    .label-text-input-outline {
+      border-bottom: 1px solid #0099ff;
+      background-color: transparent;
+    }
+  }
+  &.error {
+    .label-text-input-outline {
+      border-bottom: 1px solid red;
+      background-color: rgba(255, 0, 0, .2);
+      .label-text-input-si {
+        color: red;
+      }
+    }
+    .label-text-input-msg {
+      color: red;
+    }
+  }
+  &.success {
+    .label-text-input-outline {
+      background-color: rgba(0, 153, 255, .2);
+      border-bottom: 1px solid #0099ff;
+      .label-text-input-si {
+        color: #0099ff;
+      }
+    }
+    .label-text-input-msg {
+      color: #0099ff;
+    }
+  }
+}
+
+
+

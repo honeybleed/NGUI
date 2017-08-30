@@ -1,0 +1,14 @@
+.custom.label-text-input-component{
+  .label-text-input-outline{
+    border-bottom: 1px solid green;
+    .label-text-input-label {
+      color: green;
+    }
+  }
+  &.hover{
+    .label-text-input-outline{
+      background-color: blue;
+    }
+  }
+}
+

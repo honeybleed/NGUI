@@ -1,5 +1,5 @@
 import { Injectable, Optional } from '@angular/core';
-import { IconConfig } from './icon-config';
+import { IconConfig } from '../common-model';
 
 @Injectable()
 export class IconService {

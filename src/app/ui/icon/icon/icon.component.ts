@@ -12,10 +12,10 @@ export class IconComponent implements OnInit {
 
   ngOnInit() {
   }
-  getFontFamily(): string{
+  getFontFamily(): string {
     return this._iconService.getFontFamily();
   }
-  getIconCode(): string{
+  getIconCode(): string {
     return this._iconService.getIconCode(this.iconTag);
   }
 }

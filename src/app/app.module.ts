@@ -18,6 +18,5 @@ import { icons } from './icons';
 })
 export class AppModule {
   constructor() {
-    console.log(icons);
   }
 }

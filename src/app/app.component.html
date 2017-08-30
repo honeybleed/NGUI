@@ -10,7 +10,16 @@
   <li>
     <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
     <ui-icon [iconTag]="'book'"></ui-icon>
-    <ui-label-text-input [id]="'test-input'" [name]="'test-input'" [si]="testSi" [placeHolder]="placeholder" [label]="label"></ui-label-text-input>
+    <div id="input-component-test">
+      <ui-label-text-input id="username"
+                           [id]="'test-input'"
+                           [name]="'test-input'"
+                           [si]="testSi"
+                           [placeHolder]="placeholder"
+                           [label]="label"
+                           [validateHandler]="validateHandler" [info]="'5-14位字母与数字'"></ui-label-text-input>
+    </div>
+
   </li>
   <li>
     <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
