@@ -1,0 +1,36 @@
+.u-button-component {
+  background-color: rgba(0,0,0,.3);
+  padding: 5px 10px;
+  border: 1px solid rgba(255,255,255,.2);
+  cursor: pointer;
+  transition: .2s;
+  .icon {
+    color: #ccc;
+    font-size: 14px;
+  }
+  .u-button-text {
+    font-family: "Microsoft YaHei UI Light", serif;
+    color: #ccc;
+    font-size: 14px;
+  }
+  &.focus {
+    border:1px dotted #0099ff;
+  }
+  &.hover{
+    background-color: rgba(0,0,0,.6);
+  }
+  &.down {
+    box-shadow: 1px 1px 0 rgba(255,255,255,.3);
+  }
+  &.disabled {
+    background-color: #999999;
+    .icon{
+      color: #222222;
+      text-shadow: 1px 1px 0 #fff;
+    }
+    .u-button-text {
+      color: #222222;
+      text-shadow: 1px 1px 0 #fff;
+    }
+  }
+}

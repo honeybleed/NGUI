@@ -1,0 +1,16 @@
+.win-title-component {
+  background-color: rgba(0,0,0,.4);
+  .win-title-layout {
+    .win-title-icon-col {
+      color: #FFF;
+      font-size: 24px;
+    }
+    .win-title-text-col {
+      font-family: "Microsoft YaHei UI Light", serif;
+      color: #fff;
+    }
+    .win-title-tools {
+      //background-color: rgba(0,0,0,.2);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="win-title-component" #e_component>
+  <table class="win-title-layout">
+    <tbody>
+    <tr>
+      <td class="win-title-icon-col" [style.width]="iconWidth + 'px'">
+        <ui-icon [iconTag]="icon"></ui-icon>
+      </td>
+      <td class="win-title-text-col">
+        {{titleText}}
+      </td>
+      <td class="win-title-tools" [style.width]="toolsWidth + 'px'">
+        <app-win-title-tool-button *ngFor="let config of toolButtons" [config]="config"></app-win-title-tool-button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

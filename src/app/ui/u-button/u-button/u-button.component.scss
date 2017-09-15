@@ -1,0 +1,9 @@
+.u-button-component {
+  display: inline-block;
+  -webkit-appearance: none;
+  border: 1px solid;
+  user-select: none;
+  &:focus {
+    outline: none;
+  }
+}

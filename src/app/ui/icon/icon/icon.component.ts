@@ -1,7 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component, Input, OnInit, ViewEncapsulation
+} from '@angular/core';
 import { IconService } from '../icon.service';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'ui-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']
@@ -9,7 +12,6 @@ import { IconService } from '../icon.service';
 export class IconComponent implements OnInit {
  @Input() iconTag: string;
   constructor(private  _iconService: IconService) { }
-
   ngOnInit() {
   }
   getFontFamily(): string {

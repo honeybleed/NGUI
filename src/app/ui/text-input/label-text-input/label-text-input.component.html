@@ -2,7 +2,19 @@
   <div #e_outline class="label-text-input-outline" (mouseenter)="enter()" (mouseleave)="leave()" >
     <label #e_label [for]="id" class="label-text-input-label" >{{label}}</label>
     <div #e_input_block class="label-text-input-block" >
-      <input [type] = "isPassword ? 'password': 'text'" [name]="name" [id]="id"  #e_input [placeholder]="placeHolder" class="label-text-input" (focus)="focus()" (blur)="blur()" (input)="input($event)"/>
+      <input [value]="value"
+             (ngModel)="value"
+             [disabled]="disabled"
+             [type]="isPassword ? 'password': 'text'"
+             [name]="name"
+             [id]="id"
+             #e_input
+             [placeholder]="placeHolder"
+             class="label-text-input"
+             (focus)="focus()"
+             (blur)="blur()"
+             (ngModelChange)="input($event)"
+             />
     </div>
     <ui-icon [iconTag]="siTag()" #e_si class="label-text-input-si"></ui-icon>
   </div>

@@ -2,6 +2,7 @@ import {ComponentClassInterface} from '../../common-model';
 export type LabelTextInputEvents = 'hover'| 'focus';
 export type LabelTextInputStatus = null|'normal'|'error'|'success';
 export class LabelTextInterfaceClassConfig implements ComponentClassInterface {
+  disabled = false;
   events = {
     'hover': false,
     'focus': false
@@ -22,6 +23,10 @@ export class LabelTextInterfaceClassConfig implements ComponentClassInterface {
   }
   dumpClasses(): string[] {
     const ret = [];
+    if (this.disabled) {
+      ret.push('disabled');
+      return ret;
+    }
     for ( const name of Object.getOwnPropertyNames(this.events) ){
       if (this.events[name]) {
         ret.push(name);
@@ -35,5 +40,4 @@ export class LabelTextInterfaceClassConfig implements ComponentClassInterface {
     }
     return ret;
   }
-
 }

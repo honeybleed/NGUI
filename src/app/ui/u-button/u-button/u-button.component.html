@@ -1,0 +1,11 @@
+<button class="u-button-component" [ngClass]="dumpClasses()"
+        (mouseenter)="enter()"
+        (mouseleave)="leave()"
+        (focus)="focus()"
+        (blur)="blur()"
+        [disabled]="disabled"
+        (mousedown)="down()"
+        (mouseup)="up()">
+  <ui-icon class="u-button-icon" [iconTag]="icon()" *ngIf="hasIcon()"></ui-icon>
+  <span class="u-button-text">{{text()}}</span>
+</button>

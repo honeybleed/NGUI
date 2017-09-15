@@ -68,6 +68,19 @@
       color: #0099ff;
     }
   }
+  &.disabled {
+    .label-text-input-outline {
+      background-color: #aaa;
+      .label-text-input-label {
+        color: #444;
+        text-shadow: 1px 1px 0 #FFF;
+      }
+      .label-text-input {
+        color: #444;
+        text-shadow: 1px 1px 0 #FFF;
+      }
+    }
+  }
 }
 
 

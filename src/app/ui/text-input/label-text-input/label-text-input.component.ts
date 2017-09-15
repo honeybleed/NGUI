@@ -1,4 +1,7 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,
+  ViewEncapsulation
+} from '@angular/core';
 import { TextInputSI } from './TextInputSI';
 import { ValidateHandlerInterface } from '../../common-model';
 import { LabelTextInterfaceClassConfig } from './LabelTextInterfaceClassConfig';
@@ -9,11 +12,10 @@ import { LabelTextInterfaceClassConfig } from './LabelTextInterfaceClassConfig';
   templateUrl: './label-text-input.component.html',
   styleUrls: ['./label-text-input.component.scss']
 })
-export class LabelTextInputComponent extends LabelTextInterfaceClassConfig implements OnInit {
+export class LabelTextInputComponent extends LabelTextInterfaceClassConfig implements OnInit, OnChanges {
   get validateRet(): { ret: boolean; msg: string } {
     return this._validateRet;
   }
-
   set validateRet(value: { ret: boolean; msg: string }) {
     this._validateRet = value;
   }
@@ -24,8 +26,11 @@ export class LabelTextInputComponent extends LabelTextInterfaceClassConfig imple
   @Input() name: string;
   @Input() si: TextInputSI;
   @Input() theme: string;
+  @Input() disabled: boolean;
   @Input() info: string;
   @Input() validateHandler: ValidateHandlerInterface[];
+  @Output() valueChange = new EventEmitter();
+  @Input() value;
   private _validateRet: {ret: boolean, msg: string};
   constructor() {
     super();
@@ -48,7 +53,7 @@ export class LabelTextInputComponent extends LabelTextInterfaceClassConfig imple
       msg: this.info
     };
     for (const handler of this.validateHandler) {
-      const tmp = handler.valid(event.target.value);
+      const tmp = handler.valid(event);
       if (!tmp.ret) {
         ret = tmp;
         break;
@@ -60,6 +65,7 @@ export class LabelTextInputComponent extends LabelTextInterfaceClassConfig imple
       this.changeStatus('error');
     }
     this.validateRet = ret;
+    this.valueChange.emit(event);
   }
   siTag() {
     switch (this.status) {
@@ -78,5 +84,11 @@ export class LabelTextInputComponent extends LabelTextInterfaceClassConfig imple
       ret: false,
       msg: this.info
     };
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    const valueChange = changes['value'];
+    if (!valueChange.firstChange) {
+      this.input(valueChange.currentValue ? valueChange.currentValue : '');
+    }
   }
 }

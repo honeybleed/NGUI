@@ -1,0 +1,27 @@
+.win-title-component{
+  -webkit-app-region: drag;
+  *{
+    user-select: none;
+  }
+  .win-title-layout {
+    table-layout: fixed;
+    width: 100%;
+    .win-title-icon-col {
+      text-align: center;
+      vertical-align: middle;
+    }
+    .win-title-text-col {
+      vertical-align: middle;
+    }
+    .win-title-tools {
+      -webkit-app-region: no-drag;
+      text-align: right;
+      padding: 4px 2px;
+      vertical-align: middle;
+      app-win-title-tool-button {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
