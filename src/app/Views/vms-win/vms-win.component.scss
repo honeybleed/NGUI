@@ -1,0 +1,16 @@
+.vms-win-outline {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .vm-lists {
+    .vm-item-block {
+      display: inline-block;
+      padding: 5px;
+    }
+  }
+}

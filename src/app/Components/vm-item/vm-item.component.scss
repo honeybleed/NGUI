@@ -1,0 +1,117 @@
+.vm-item-outline {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  .title {
+    font-family: "Microsoft YaHei", sans-serif;
+    font-size: 16px;
+    display: table;
+    width: 100%;
+    .title-name {
+      display: table-cell;
+      padding: 0 5px;
+    }
+    .action-box {
+      display: table-cell;
+      text-align: right;
+    }
+  }
+  .main {
+    margin: 5px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    .os {
+      display: inline-block;
+      font-size: 100px;
+      vertical-align: middle;
+    }
+    .info {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: "Microsoft YaHei", serif ;
+      padding: 5px 10px;
+      .info-row {
+        position: relative;
+        .name {
+          display: inline-block;
+          width: 60px;
+          vertical-align: middle;
+        }
+        .value{
+          display: inline-block;
+          max-width: 140px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          vertical-align: middle;
+        }
+        .copy-id {
+          position: absolute;
+          right: -18px;
+          top: -1px;
+          font-size: 18px;
+          color: #FFF;
+          cursor: pointer;
+          &:hover {
+            color: rgb(95, 166, 218);
+          }
+
+        }
+      }
+    }
+  }
+  .buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  &.Running {
+    border:1px solid rgb(45, 116, 218);
+    box-shadow: 0 0 15px rgba(0,0,0,.8);
+    .title {
+      background-color: rgba(45, 116, 218, .5);
+      color: #FFF;
+    }
+    .main {
+      .os {
+        color: rgba(0, 0, 0, .3);
+      }
+      .info{
+        .info-row{
+          .name {
+            color: rgba(255,255,255,.4);
+            font-weight: bold;
+          }
+          .value {
+            color: rgba(255,255,255,.9);
+          }
+        }
+      }
+    }
+  }
+
+  &.Stopped {
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow: none;
+    .title {
+      background-color: rgba(255,255,255,.4);
+      color: #FFF;
+    }
+    .main {
+      .os{
+        color: rgba(255,255,255,.1);
+        // text-shadow: 1px 1px 0 rgb(255,255,255);
+      }
+      .info{
+        .info-row{
+          .name {
+            color: rgba(255,255,255,.2);
+            font-weight: bold;
+          }
+          .value {
+            color: rgba(255,255,255,.6);
+          }
+        }
+      }
+    }
+  }
+}

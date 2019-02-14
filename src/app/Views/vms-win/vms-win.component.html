@@ -1,0 +1,14 @@
+<app-win-title [icon]="'logo'"
+               [toolButtons]="toolButtons"
+               [iconWidth]="30"
+               [toolsWidth]="175"
+               [isDrag]="!isMax"
+               [titleText]="title"></app-win-title>
+<div class="vms-win-outline">
+  <app-msg [status]="msgStatus" [msg]="msg" *ngIf="showMsg"></app-msg>
+  <div class="vm-lists">
+    <div class="vm-item-block" *ngFor="let vm of vms">
+      <app-vm-item [vm]="vm"></app-vm-item>
+    </div>
+  </div>
+</div>

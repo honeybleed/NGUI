@@ -1,0 +1,16 @@
+.msg-outline {
+  padding: 5px 10px;
+  text-align: left;
+  font-size: 14px;
+  font-family: "Microsoft YaHei", serif;
+  color: #FFF;
+  &.normal {
+    background-color: rgba(45, 116, 218, .5);
+  }
+  &.success {
+    background-color: rgba(141, 197, 72, .5);
+  }
+  &.error {
+    background-color: rgba(245, 105, 92, .5);
+  }
+}

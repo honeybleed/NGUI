@@ -1,0 +1,119 @@
+<app-win-title [icon]="'alert'"
+               [toolButtons]="toolButtons"
+               [iconWidth]="30"
+               [toolsWidth]="25"
+               [titleText]="'应用信息'"></app-win-title>
+<div class="app-info-outline">
+  <div class="title">
+    <span class="title-icon">
+      <ui-icon [iconTag]="'right'"></ui-icon>
+    </span>
+    <span class="txt">
+      应用选项
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      开机启动：
+    </span>
+    <span class="value">
+      <input type="checkbox" [checked]="withBoot" [disabled]="changeBootDisabled" (change)="check($event.target.checked)">
+    </span>
+  </div>
+  <div class="title">
+    <span class="title-icon">
+      <ui-icon [iconTag]="'app-info'"></ui-icon>
+    </span>
+    <span class="txt">
+      应用信息
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      名称：
+    </span>
+    <span class="value">
+      OCTDesk
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      终端 ID：
+    </span>
+    <span class="value">
+      {{clientID}}
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      版本：
+    </span>
+    <span class="value">
+      {{clientVer}}
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      版权：
+    </span>
+    <span class="value">
+      All rights copy to OCTopuslink 2017
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      联系我们：
+    </span>
+    <span class="value">
+      <a class="mail" href="mailto:support@octlink.com">support@octlink.com</a>
+    </span>
+  </div>
+  <div class="title">
+    <span class="title-icon">
+      <ui-icon [iconTag]="'config-info'"></ui-icon>
+    </span>
+    <span class="txt">
+      Center 配置信息
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      Center IP：
+    </span>
+    <span class="value">
+      {{centerIP}}
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      Center Port：
+    </span>
+    <span class="value">
+     {{centerPort}}
+    </span>
+  </div>
+  <div class="title">
+    <span class="title-icon">
+      <ui-icon [iconTag]="'user-info'"></ui-icon>
+    </span>
+    <span class="txt">
+      用户信息
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      用户 ID：
+    </span>
+    <span class="value">
+      {{userID}}
+    </span>
+  </div>
+  <div class="info-row">
+    <span class="name">
+      用户账号：
+    </span>
+    <span class="value">
+     {{userName}}
+    </span>
+  </div>
+</div>

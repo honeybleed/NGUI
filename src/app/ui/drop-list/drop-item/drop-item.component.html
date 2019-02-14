@@ -1,0 +1,11 @@
+<div class="drop-item-outline"
+     [ngClass]="dumpClasses()"
+     (mouseenter)="enter()"
+     (mouseleave)="leave()" (mousedown)="down()" (mouseup)="up()" (click)="click()">
+  <div class="icon-block">
+    <ui-icon [iconTag]="info.icon"></ui-icon>
+  </div>
+  <div class="label">
+    {{info.label}}
+  </div>
+</div>

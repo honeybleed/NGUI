@@ -1,0 +1,43 @@
+.app-info-outline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35px;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .title {
+    background: rgba(255,255,255,.2);
+    color: #FFF;
+    padding: 5px 10px;
+    .title-icon{
+      font-size: 20px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    .txt{
+      font-size: 16px;
+      font-family: "Microsoft YaHei", serif;
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+  .info-row {
+    padding: 10px 5px;
+    font-family: "Microsoft YaHei", serif;
+    font-size: 14px;
+    color: #FFF;
+    .name {
+      display: inline-block;
+      width: 150px;
+      text-align: right;
+    }
+    .value {
+      display: inline-block;
+      vertical-align: middle;
+      .mail {
+        color: rgb(95, 166, 218);
+      }
+    }
+  }
+}

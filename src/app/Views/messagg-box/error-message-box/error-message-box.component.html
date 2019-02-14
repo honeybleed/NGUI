@@ -1,0 +1,13 @@
+<div class="error-message-box-outline">
+  <div class="info">
+    <span class="icon-block">
+      <ui-icon [iconTag]="'run'"></ui-icon>
+    </span>
+    <span class="message">
+      正在启动主机 <span class="name">{{vmName}}</span> ......
+    </span>
+  </div>
+  <div class="buttons">
+    <ui-u-button [iconTag]="'right'" [showText]="buttonText" (uClick)="click()" [theme]="'green'"></ui-u-button>
+  </div>
+</div>

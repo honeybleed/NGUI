@@ -1,0 +1,55 @@
+<div class="vm-item-outline" [ngClass]="vm.status" >
+  <div class="title">
+    <span class="title-name">
+    {{vm.name}}
+    </span>
+    <span class="action-box">
+      <ui-drop-list [items]="powerActions" [icon]="'power'" [label]="'电源操作'" (itemClicked)="power($event)"></ui-drop-list>
+    </span>
+  </div>
+  <div class="main">
+    <div class="os" [ngClass]="vm_os_icon()">
+      <ui-icon [iconTag]="vm_os_icon()"></ui-icon>
+    </div>
+    <div class="info">
+      <div class="info-row">
+        <span class="name">
+          ID：
+        </span>
+        <span class="value" [title]="vm.id">
+          {{vm.id}}
+        </span>
+        <span class="copy-id" title="复制 ID" (click)="copy(vm.id)">
+          <ui-icon [iconTag]="'copy'"></ui-icon>
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="name">
+          IP：
+        </span>
+        <span class="value">
+          {{vm.ip}}
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="name">
+          MAC：
+        </span>
+        <span class="value">
+          {{vm.mac}}
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="name">
+          OS：
+        </span>
+        <span class="value">
+          {{vm.osStr}}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <ui-u-button [iconTag]="'remote'" [disabled]="this.vm.status === 'Stopped'" theme="green" (uClick)="click()" [showText]="spiceText"></ui-u-button>
+  </div>
+</div>

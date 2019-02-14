@@ -1,0 +1,14 @@
+.drop-item-outline {
+  position: relative;
+  white-space: nowrap;
+  .icon-block {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .label {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

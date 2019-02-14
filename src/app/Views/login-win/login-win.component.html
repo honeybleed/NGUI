@@ -1,0 +1,73 @@
+<app-win-title [icon]="'login'"
+               [toolButtons]="toolButtons"
+               [iconWidth]="30"
+               [toolsWidth]="25"
+               [titleText]="'登录'"></app-win-title>
+<div class="login-outline">
+  <div class="title">
+    欢迎使用 OCTDesk
+  </div>
+  <div class="login-form">
+    <div class="tab-buttons">
+      <span class="account-button">
+        <ui-icon [iconTag]="'account'"></ui-icon>
+        <span class="text">账号登录</span>
+      </span>
+    </div>
+    <div class="inputs">
+      <div class="input-row" *ngIf="isVersion5()">
+        <ui-label-text-input
+          [label]="'管理员'"
+          [value]="adminValue"
+          (valueChange)="adminChange($event)"
+          (validateFail)="adminRet($event)"
+          [si]="inputSI"
+          [labelAlign]="'right'"
+          [labelWidth]="100"
+          [inputWidth]="200"
+          [allowValidate]="true"
+          [placeHolder]="'请输入管理员账号'"
+          [info]="'字母、数字、下划线组成字符串'" [validateHandler]="adminValidateHandlers" ></ui-label-text-input>
+      </div>
+      <div class="input-row">
+        <ui-label-text-input
+          [label]="'账号'"
+          [value]="accountValue"
+          (valueChange)="accountChange($event)"
+          (validateFail)="accountRet($event)"
+          [si]="inputSI"
+          [labelAlign]="'right'"
+          [labelWidth]="100"
+          [inputWidth]="200"
+          [allowValidate]="true"
+          [placeHolder]="'请输入用户账号'"
+          [info]="'字母、数字、下划线组成字符串'" [validateHandler]="accountValidateHandlers" ></ui-label-text-input>
+      </div>
+      <div class="input-row">
+        <ui-label-text-input
+          [label]="'密码'"
+          [value]="pwdValue"
+          [isPassword]="true"
+          (valueChange)="pwdChange($event)"
+          (validateFail)="pwdRet($event)"
+          [si]="inputSI"
+          [labelAlign]="'right'"
+          [labelWidth]="100"
+          [inputWidth]="200"
+          [allowValidate]="true"
+          [placeHolder]="'请输入用户密码'"
+          [info]="'字母、数字、下划线组成字符串'" [validateHandler]="pwdValidateHandlers" ></ui-label-text-input>
+      </div>
+    </div>
+    <app-msg [status]="msgStatus" [msg]="msg"></app-msg>
+  </div>
+  <div class="check-row">
+    <input type="checkbox" id="save-user" class="check-box" [checked]="isChecked" (change)="check($event.target.checked)"><label for="save-user" class="check-label">保存账户信息</label>
+    <div class="config-button-box">
+      <ui-u-button [iconTag]="'config'" [showText]="'修改配置'" [disabled]="configDisabled" (uClick)="configClick()"></ui-u-button>
+    </div>
+  </div>
+  <div class="buttons">
+    <ui-u-button [iconTag]="'login'" [showText]="'登录'" [theme]="'green'" [disabled]="loginDisabled" (uClick)="doLogin()"></ui-u-button>
+  </div>
+</div>

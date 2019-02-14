@@ -1,0 +1,18 @@
+<div class="drop-list-outline"
+     [ngClass]="dumpClasses()"
+     (mouseenter)="enter()"
+     (mouseleave)="leave()"
+     (mouseup)="up()"
+     (mousedown)="down()" #comp [style.min-width]="width? width + 'px' : ''">
+  <div class="drop-face" (click)="click($event)" #face>
+    <div class="drop-icon">
+      <ui-icon [iconTag]="icon"></ui-icon>
+    </div>
+    <div class="drop-label">
+      {{label}}
+    </div>
+  </div>
+  <div class="drop-list" #list>
+    <ui-drop-item *ngFor="let info of items" [info]="info" (uClick)="itemClick($event)" [disabled]="info.disabled"></ui-drop-item>
+  </div>
+</div>

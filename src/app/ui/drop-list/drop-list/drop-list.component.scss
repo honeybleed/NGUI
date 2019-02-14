@@ -1,0 +1,31 @@
+.drop-list-outline {
+  user-select: none;
+  position: relative;
+  display: inline-block;
+  .drop-face {
+    padding: 2px 10px;
+    position: relative;
+    .drop-icon {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+    .drop-label {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+  .drop-list {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all .2s;
+  }
+  &.dropdown {
+    .drop-list {
+      opacity: 1;
+      height: auto;
+      z-index: 100;
+    }
+  }
+}

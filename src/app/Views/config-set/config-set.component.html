@@ -1,0 +1,37 @@
+<app-win-title [icon]="'config'"
+               [toolButtons]="toolButtons"
+               [iconWidth]="30"
+               [toolsWidth]="25"
+               [titleText]="'配置'"></app-win-title>
+<div class="config-outline">
+  <div class="item-row id-row">
+    <span class="client-id-label">终端 ID： </span>
+    <span class="client-id-value"> {{clientID()}} </span>
+  </div>
+  <div class="item-row">
+    <ui-label-text-input
+      [label]="'Center 地址：'"
+      [value]="ipValue"
+      (valueChange)="ipChange($event)"
+      (validateFail)="ipRet($event)"
+      [allowValidate]="allowIPValidate"
+      [si]="inputSI"
+      [placeHolder]="'请输入 Center IP 地址'"
+      [info]="'IP v4 地址格式'" [validateHandler]="ipValidateHandlers" ></ui-label-text-input>
+  </div>
+  <div class="item-row">
+    <ui-label-text-input
+      [label]="'Center 端口：'"
+      [value]="portValue"
+      (valueChange)="portChange($event)"
+      [allowValidate]="allowPortValidate"
+      (validateFail)="portRet($event)"
+      [si]="inputSI"
+      [placeHolder]="'请输入 Center Port'"
+      [info]="'0 - 65535 整数'" [validateHandler]="portValidateHandlers" ></ui-label-text-input>
+  </div>
+  <app-msg [status]="msgStatus" [msg]="msg"></app-msg>
+  <div class="buttons">
+    <ui-u-button [showText]="'保存配置并注册'" [disabled]="registerDisabled" [iconTag]="'edit'" (uClick)="doRegister()"></ui-u-button>
+  </div>
+</div>
