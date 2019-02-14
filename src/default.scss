@@ -7,3 +7,9 @@ app-win-title {
 ui-u-button {
   @import "styles/uButton/default";
 }
+ui-drop-list {
+  @import "styles/droplist/default";
+}
+ui-drop-item {
+  @import "styles/droplist/dropitem/default";
+}

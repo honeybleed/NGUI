@@ -1,8 +1,9 @@
 <div #e_component class="label-text-input-component" [ngClass]="dumpClasses()">
   <div #e_outline class="label-text-input-outline" (mouseenter)="enter()" (mouseleave)="leave()" >
-    <label #e_label [for]="id" class="label-text-input-label" >{{label}}</label>
+    <label #e_label [for]="id" class="label-text-input-label" [style.width]="labelWidth+'px'" [style.text-align]="labelAlign">{{label}}</label>
     <div #e_input_block class="label-text-input-block" >
       <input [value]="value"
+             [style.width]="inputWidth + 'px'"
              (ngModel)="value"
              [disabled]="disabled"
              [type]="isPassword ? 'password': 'text'"

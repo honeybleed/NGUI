@@ -1,0 +1,69 @@
+.config-check-outline {
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  top: 35px;
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50%;
+  .config-check-main {
+    height: 170px;
+    position: relative;
+    width: 400px;
+    .logo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 170px;
+      text-align: center;
+      font-size: 150px;
+      line-height: 170px;
+      color: rgba(0,0,0,.2);
+    }
+    .info {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 170px;
+      padding: 10px;
+      text-align: left;
+      font-family: "Microsoft YaHei", serif;
+      .name {
+        position: absolute;
+        padding: 5px 10px;
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        font-size: 20px;
+        color: #FFF;
+      }
+      .version {
+        position: absolute;
+        top: 50px;
+        font-size: 14px;
+        color: #fff;
+      }
+      .copyrights {
+        position: absolute;
+        left: 10px;
+        bottom: 15px;
+        right: 0;
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+      }
+    }
+  }
+  .check-msg {
+    width: 400px;
+  }
+  .buttons {
+    width: 400px;
+    text-align: right;
+    padding-top: 20px;
+  }
+}

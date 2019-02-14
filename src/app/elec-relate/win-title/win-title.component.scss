@@ -1,5 +1,7 @@
 .win-title-component{
-  -webkit-app-region: drag;
+  &.drag {
+    -webkit-app-region: drag;
+  }
   *{
     user-select: none;
   }

@@ -5,6 +5,7 @@ const fs = require('fs');
 class ConfigStore {
   constructor( defaults ) {
     const configPath = electron.app.getPath('userData');
+    // console.log(configPath);
     this.path = path.join(configPath, 'config.json');
     this.data = parseDataFile(this.path, defaults);
   }

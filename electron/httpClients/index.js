@@ -81,6 +81,12 @@ function DoPostV3(uri, query, data) {
     'Content-Type': 'application/x-www-form-urlencoded',
     'Content-Length':Buffer.byteLength(postData)
   };
+  console.log('-----------------------------request------------------------------');
+  console.log('POST: ');
+  console.log(options.host + ":" + options.port + "//" + options.path);
+  console.log('Data: ');
+  console.log(postData);
+
   return new Promise((resolve, reject) => {
     let timeoutID;
     let req = require('http').request(options, (res) => {
@@ -95,6 +101,11 @@ function DoPostV3(uri, query, data) {
         resData += chunk;
       });
       res.on('end', () => {
+        console.log('-----------------------------response-------------------------------');
+        console.log(resData);
+        // console.log('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||');
+        // console.log();
+        // console.log('{}{}{}{}{}{}{}}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}');
         let apiResponse = JSON.parse(resData);
         if (apiResponse.errorObj.errorNo !== 0) {
           reject({errorNo: apiResponse.errorObj.errorNo, errorMsg: "API 请求异常： " + apiResponse.errorObj.errorMsgCN});

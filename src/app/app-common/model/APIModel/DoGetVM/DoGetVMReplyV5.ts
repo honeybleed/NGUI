@@ -1,4 +1,4 @@
-import { APIReply, APISession } from '../';
+import { APIReply } from '../';
 import { VMObj } from '../../VMObj';
 
 export interface DoGetVMReplyV5 extends APIReply {

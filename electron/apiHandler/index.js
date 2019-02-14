@@ -1,6 +1,19 @@
 const { DoGet, DoPostV5, DoPostV3, VERSION } = require('../httpClients');
-const { ReadConfig, WriteConfig, InitConfig, GetCipherPwd } = require('../nativeTools');
+const { ReadConfig, WriteConfig, InitConfig, GetCipherPwd, GetTextPwd } = require('../nativeTools');
 const { IpcHandler } = require('../ipcMainHandler');
+
+function getV3ActionCode(action) {
+  switch (action) {
+    case 'start':
+      return 6;
+    case 'shutdown':
+      return 1;
+    case 'restart':
+      return 4;
+    default:
+      return -1;
+  }
+}
 
 function getVMInfoV3(vm) {
   let _name = vm.name;
@@ -119,7 +132,7 @@ const DoLoginListener = new IpcHandler('do-login', (event, data) => {
   if (version === VERSION.VERSION_3) {
     const pams = {
       name: data.args.username,
-      cipherPassword: GetCipherPwd(data.args.password)
+      cipherPassword: data.args.password
     };
     DoPostV3('tuser/login', null, pams).then((ret) => {
       event.sender.send('do-login-reply', {errorNo:0, data: ret});
@@ -131,7 +144,7 @@ const DoLoginListener = new IpcHandler('do-login', (event, data) => {
       module: 'enduser',
       api: 'octlink.center.v5.enduser.APIEnduserLogin',
       paras: {
-        'cipherPassword': GetCipherPwd(data.args.password),
+        'cipherPassword': data.args.password,
         'name': data.args.username,
         'account': data.args.admin,
         'timeout': 0
@@ -187,4 +200,51 @@ const DoGetVMListener = new IpcHandler('do-get-vm', (event, data) => {
       event.sender.send('do-get-vm-reply', {errorNo: err.errorNo, errorMsg: err.errorMsg});
     });
   }
+}).listen();
+
+const DoVMPowerAction = new IpcHandler('do-vm-power-action', (event, data) => {
+  const version = data.version;
+  if (version === VERSION.VERSION_3) {
+    DoPostV3('vms/' + data.args.vmid + '/power',null, {
+      action: getV3ActionCode(data.args.action)
+    }).then((ret) => {
+      event.sender.send('do-vm-power-action-reply', {errorNo:0, data: ret});
+    }).catch((err) => {
+      event.sender.send('do-vm-power-action-reply', {errorNo:err.errorNo, errorMsg:err.errorMsg});
+    })
+  } else {
+    const pams = {
+      module: 'vm',
+      api: 'octlink.center.v5.vm.APIPowerVm',
+      paras: {
+        action: data.args.action,
+        id: data.args.vmid,
+        timeout: 0
+      },
+      async: false,
+      session: {
+        uuid: data.args.sessionID,
+        skey: ReadConfig('SKEY')
+      }
+    };
+    DoPostV5(pams).then((ret) => {
+      event.sender.send('do-vm-power-action-reply', {errorNo:0, data: ret});
+    }).catch((err) => {
+      event.sender.send('do-vm-power-action-reply', {errorNo: errorNo, errorMsg: err.errorMsg});
+    });
+  }
+}).listen();
+
+const ReadConfigListener = new IpcHandler('read-config', (event, data) => {
+  event.returnValue = ReadConfig(data.key)?ReadConfig(data.key):null;
+}).listen();
+const WriteConfigListener = new IpcHandler('write-config', (event, data) => {
+  WriteConfig(data.key, data.value);
+  event.returnValue = null;
+}).listen();
+const TextPwdListener = new IpcHandler('get-txt-pwd', (event, data) => {
+  event.returnValue = GetTextPwd(data);
+}).listen();
+const CipherPwdListener = new IpcHandler('get-cipher-pwd', (event, data) => {
+  event.returnValue = GetCipherPwd(data);
 }).listen();

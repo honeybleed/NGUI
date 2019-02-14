@@ -2,7 +2,6 @@ import {
   Component, Input, OnInit, ViewEncapsulation
 } from '@angular/core';
 import { WinTitleToolButtonStyle } from '../win-title-tool-button/WinTitleToolButtonStyle';
-import { RenderEventHandlerService } from '../render-event-handler.service';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -16,6 +15,7 @@ export class WinTitleComponent implements OnInit {
   @Input() iconWidth: number;
   @Input() toolsWidth: number;
   @Input() titleText: string;
+  @Input() isDrag = true;
   ngOnInit() {
   }
   constructor() {

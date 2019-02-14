@@ -72,7 +72,7 @@ function InitConfig() {
   }
   const spiceText = storeHandler.get('SpiceText');
   if(!spiceText || spiceText === "") {
-    storeHandler.set('SpiceText', 'Spice');
+    storeHandler.set('SpiceText', '连接');
   }
   //init autoConnect
   const autoConnect = storeHandler.get('AutoConnect');

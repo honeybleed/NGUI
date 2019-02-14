@@ -1,6 +1,6 @@
 .label-text-input-component{
   .label-text-input-outline{
-    background-color: #eee;
+    background-color: rgba(0,0,0,.1);
     padding: 5px 10px;
     border-bottom: 1px solid #999;
     transition: all .2s;
@@ -8,7 +8,7 @@
     .label-text-input-label {
       font-size: 16px;
       padding-right: 5px;
-      color: #222;
+      color: #FFF;
     }
     .label-text-input {
       background-color: transparent;
@@ -16,13 +16,13 @@
       font-size: 16px;
       border: 0;
       padding: 0 5px;
-      color: #999;
+      color: rgba(255,255,255,.8);
       font-family: "Microsoft YaHei", serif;
+      &::-webkit-input-placeholder {
+        color: rgba(255,255,255,.5)
+      }
     }
-    .label-text-input-si {
-      font-size: 14px;
-      color: #222;
-    }
+
     .label-text-input-si {
       color: transparent;
     }
@@ -31,7 +31,8 @@
     text-align: right;
     padding: 5px;
     font-size: 12px;
-    color: #666;
+    color: rgba(255,255,255,.5);
+    font-family: "Microsoft YaHei", serif;
   }
   &.hover{
     .label-text-input-outline{
@@ -40,32 +41,32 @@
   }
   &.focus{
     .label-text-input-outline {
-      border-bottom: 1px solid #0099ff;
+      border-bottom: 1px solid rgb(45, 116, 218);;
       background-color: transparent;
     }
   }
   &.error {
     .label-text-input-outline {
-      border-bottom: 1px solid red;
-      background-color: rgba(255, 0, 0, .2);
+      border-bottom: 1px solid rgb(245, 105, 92);
+      background-color: rgba(245, 105, 92, .2);
       .label-text-input-si {
-        color: red;
+        color: #FFF;
       }
     }
     .label-text-input-msg {
-      color: red;
+      color: rgb(245, 105, 92);
     }
   }
   &.success {
     .label-text-input-outline {
-      background-color: rgba(0, 153, 255, .2);
-      border-bottom: 1px solid #0099ff;
+      background-color: rgba(45, 116, 218, .2);
+      border-bottom: 1px solid rgb(45, 116, 218);;
       .label-text-input-si {
-        color: #0099ff;
+        color: rgb(255,255,255);
       }
     }
     .label-text-input-msg {
-      color: #0099ff;
+      color: rgb(85, 156, 255);
     }
   }
   &.disabled {

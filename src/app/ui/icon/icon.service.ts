@@ -3,23 +3,21 @@ import { IconConfig } from '../common-model';
 
 @Injectable()
 export class IconService {
-  fontFamily: string;
-  iconMap: Map<string, string>;
+  iconConfig: IconConfig;
   constructor(@Optional() config: IconConfig) {
     if (config) {
-      this.fontFamily = config.fontFamily;
-      this.iconMap = config.iconMap;
+      this.iconConfig = config;
     } else {
       throw  new Error('IconModule must set a IconConfig!');
     }
   }
   getFontFamily(): string {
-    return this.fontFamily;
+    return this.iconConfig.fontFamily;
   }
-  getIconMap(): Map<string, string> {
-    return this.iconMap;
+  getIconMap(): any {
+    return this.iconConfig.iconMap;
   }
   getIconCode(tag: string): string {
-    return this.iconMap.get(tag);
+    return this.iconConfig.iconMap[tag];
   }
 }

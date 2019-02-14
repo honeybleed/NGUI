@@ -5,6 +5,9 @@ export class WinTitleToolButtonStyle {
   get icon(): string {
     return this._icon;
   }
+  set icon(value: string) {
+    this._icon = value;
+  }
   set bgColor(value: { normal: string; hover: string }) {
     this._bgColor = value;
   }

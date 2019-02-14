@@ -5,6 +5,7 @@ export enum ConfigKey {
   MAC,
   Password,
   UserName,
+  Admin,
   Platform,
   Version,
   SKEY,
