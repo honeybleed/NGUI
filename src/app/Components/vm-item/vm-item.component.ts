@@ -11,6 +11,7 @@ import { RunVmMessageBoxComponent } from '../../Views/messagg-box/run-vm-message
 import { RerunVmMessageBoxComponent } from '../../Views/messagg-box/rerun-vm-message-box/rerun-vm-message-box.component';
 import { StopVmMessageBoxComponent } from '../../Views/messagg-box/stop-vm-message-box/stop-vm-message-box.component';
 import { ErrorMessageBoxComponent } from '../../Views/messagg-box/error-message-box/error-message-box.component';
+import {ForceStopVmMessageBoxComponent} from '../../Views/messagg-box/force-stop-vm-message-box/force-stop-vm-message-box.component';
 
 @Component({
   selector: 'app-vm-item',
@@ -24,10 +25,11 @@ export class VmItemComponent implements OnInit, OnDestroy, DoCheck {
   runAction = new DropItemInfo('start', 'run', '启动');
   stopAction = new DropItemInfo('shutdown', 'stop', '关闭');
   reAction = new DropItemInfo('restart', 'rerun', '重启');
+  forceStopAction = new DropItemInfo('forceshutdown', 'stop', '强制关闭');
   powerActions: DropItemInfo[] = [];
   constructor( private _renderHandler: RenderEventHandlerService , private _popupService: PopupLayerService) {
     this.spiceText = this._renderHandler.readConfig(ConfigKey.SpiceText);
-    this.powerActions.push(this.runAction, this.reAction, this.stopAction);
+    this.powerActions.push(this.runAction, this.reAction, this.stopAction, this.forceStopAction);
   }
   ngDoCheck(): void {
     if (this.vm.status === 'Running') {
@@ -71,6 +73,9 @@ export class VmItemComponent implements OnInit, OnDestroy, DoCheck {
       case 'shutdown':
         this._stopVM();
         break;
+      case 'forceshutdown':
+        this._forceStopVM();
+        break;
     }
     this._renderHandler.doVMPowerAction({
       version: this._renderHandler.getCache().version,
@@ -102,6 +107,12 @@ export class VmItemComponent implements OnInit, OnDestroy, DoCheck {
   }
   private _stopVM() {
     this._popupService.setContent(StopVmMessageBoxComponent, null).then((comp) => {
+      comp.instance['vmName'] = this.vm.name;
+    });
+    this._popupService.showLayer();
+  }
+  private _forceStopVM() {
+    this._popupService.setContent(ForceStopVmMessageBoxComponent, null).then(comp => {
       comp.instance['vmName'] = this.vm.name;
     });
     this._popupService.showLayer();

@@ -23,6 +23,7 @@ import { PopupLayerService } from './Components/popup-layer/popup-layer.service'
 import { RerunVmMessageBoxComponent } from './Views/messagg-box/rerun-vm-message-box/rerun-vm-message-box.component';
 import { StopVmMessageBoxComponent } from './Views/messagg-box/stop-vm-message-box/stop-vm-message-box.component';
 import { ErrorMessageBoxComponent } from './Views/messagg-box/error-message-box/error-message-box.component';
+import {ForceStopVmMessageBoxComponent} from './Views/messagg-box/force-stop-vm-message-box/force-stop-vm-message-box.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ErrorMessageBoxComponent } from './Views/messagg-box/error-message-box/
     RerunVmMessageBoxComponent,
     StopVmMessageBoxComponent,
     ErrorMessageBoxComponent,
+    ForceStopVmMessageBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import { ErrorMessageBoxComponent } from './Views/messagg-box/error-message-box/
     RouterModule.forRoot(routes, { enableTracing: true , useHash: true})
   ],
   providers: [PopupLayerService],
-  entryComponents: [RunVmMessageBoxComponent, RerunVmMessageBoxComponent, StopVmMessageBoxComponent, ErrorMessageBoxComponent],
+  entryComponents: [RunVmMessageBoxComponent, RerunVmMessageBoxComponent, StopVmMessageBoxComponent, ErrorMessageBoxComponent, ForceStopVmMessageBoxComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

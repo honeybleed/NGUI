@@ -1,0 +1,24 @@
+.force-stop-vm-message-box-outline {
+  background: rgba(255,255,255,.8);
+  .buttons {
+    background-color: rgba(0,0,0,.6);
+    padding: 10px;
+    text-align: right;
+  }
+  .info {
+    padding: 20px;
+    .icon-block {
+      font-size: 40px;
+      color: rgb( 230, 35, 37);
+      vertical-align: middle;
+    }
+    .message {
+      font-size: 16px;
+      font-family: "Microsoft YaHei", serif;
+      color: #444444;
+      .name {
+        color: rgb( 230, 35, 37);
+      }
+    }
+  }
+}

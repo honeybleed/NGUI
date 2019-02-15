@@ -10,6 +10,8 @@ function getV3ActionCode(action) {
       return 1;
     case 'restart':
       return 4;
+    case 'forceshutdown':
+      return 0;
     default:
       return -1;
   }

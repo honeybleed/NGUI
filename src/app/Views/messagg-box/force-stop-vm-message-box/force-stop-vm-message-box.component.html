@@ -1,0 +1,14 @@
+<div class="force-stop-vm-message-box-outline">
+  <div class="info">
+    <span class="icon-block">
+      <ui-icon [iconTag]="'stop'"></ui-icon>
+    </span>
+    <span class="message">
+      正在强制关闭主机 <span class="name">{{vmName}}</span> 电源......
+    </span>
+  </div>
+  <div class="buttons">
+    <ui-u-button [iconTag]="'right'" [showText]="buttonText" (uClick)="click()" [theme]="'green'"></ui-u-button>
+  </div>
+</div>
+
